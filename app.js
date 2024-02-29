@@ -25,7 +25,7 @@ client.on('messageCreate', async message => {
     collector.on('collect', (reaction, user) => {
       if (reaction.emoji.name === '👋') {
         participants.add(user);
-      } else if (reaction.emoji.name === '🎲' && user.id === message.author.id && participants.size > 0) {
+      } else if (reaction.emoji.name === '🎲' && user.id === message.author.id && participants.size >= 1) {
         collector.stop('done');
       }
     });
