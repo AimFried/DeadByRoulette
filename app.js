@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.DirectMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.DirectMessageReactions] });
-const TOKEN = 'YOUR_TOKEN'; // Remplace par ton propre token
+const TOKEN = 'MTIxMjgwMjE3MDI0MDYzNTAyMA.GZUGk3.2WVEc-vkgIWrjQwL7U-k75xYPKbnhhZSVdd4EM'; // Remplace par ton propre token
 const TIME_WAITING_BEFORE_CANCEL = 60000
 
 client.on('ready', () => {
@@ -25,7 +25,7 @@ client.on('messageCreate', async message => {
     collector.on('collect', (reaction, user) => {
       if (reaction.emoji.name === '👋') {
         participants.add(user);
-      } else if (reaction.emoji.name === '🎲' && user.id === message.author.id) {
+      } else if (reaction.emoji.name === '🎲' && user.id === message.author.id && participants.size > 0) {
         collector.stop('done');
       }
     });
